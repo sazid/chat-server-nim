@@ -10,3 +10,13 @@ type
   Server = ref object
     socket: AsyncSocket
     clients: seq[Client]
+
+proc newServer(): Server =
+  Server(
+    socket: newAsyncSocket(),
+    clients: @[],
+  )
+
+
+when isMainModule:
+  # var server = newServer()
